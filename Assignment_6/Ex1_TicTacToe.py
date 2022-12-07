@@ -34,7 +34,7 @@ def Validate_check():
 
 def Status_check():
     flg_win=0
-    for i in range(2):
+    for i in range(3):
         if(Game_Array[i][0]!=" _ " and Game_Array[i][1]!=" _ " and Game_Array[i][2]!=" _ " and
            Game_Array[i][0]== Game_Array[i][1]==Game_Array[i][2] or
            Game_Array[0][i]!=" _ " and Game_Array[1][i]!=" _ " and Game_Array[2][i]!=" _ " and            
@@ -59,7 +59,7 @@ print(Title)
 user_Choice=int(input("\n 1-Player vs CPU \n 2-Player vs Player\n Select your choice:"))
 show()
 time_start=timer()
-while cnt<10:
+while cnt<6:
     while True:
         print(Fore.BLUE+"Player 1 Turn:")
         row=(int(input("Row:")))
