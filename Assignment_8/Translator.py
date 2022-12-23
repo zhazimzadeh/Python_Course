@@ -20,14 +20,17 @@ def read_from_file():
 
 def show_menu():
     print(Fore.CYAN+"=========================================================")
-    print("            ***    Welcome to Translator    ***")
-    print("=========================================================")  
+    print("            ***    Welcome to Translato   ***")
+    print("=========================================================")
+    print("Menu\n")  
     print("1_Translate English to Persian")
     print("2_Translate Persian to English")
     print("3_Add New Word")
     print("4_exit")
     print(Fore.WHITE+"\n")
 
+def tepm():
+    ...
 def Translate_English_Farsi():
     user_text=input("enter an english word/sentence: ")
     user_word=user_text.split(" ")
