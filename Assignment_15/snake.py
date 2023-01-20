@@ -24,14 +24,15 @@ class Snake(arcade.Sprite):
 
     def draw(self):
         arcade.draw_rectangle_filled(self.center_x,self.center_y,self.width,self.height,self.color)
-        flg=0
+        i=1
         for part in self.body:
-            if flg==0:
+            if i%2==0:
+                # arcade.draw_rectangle_filled(part['x']+i*self.width*self.change_x,part['y']+self.height*self.change_y,self.width,self.height,self.color)
                 arcade.draw_rectangle_filled(part['x'],part['y'],self.width,self.height,self.color)
-                flg=1
+
             else:
-                arcade.draw_rectangle_filled(part['x'],part['y'],self.width,self.height,arcade.color.BLUE)
-                flg=0
+                arcade.draw_rectangle_filled(part['x'],part['y']+self.change_y,self.width,self.height,arcade.color.BLUE)
+            i+=1
 
     def move(self):
         self.center_x +=self.change_x*self.speed

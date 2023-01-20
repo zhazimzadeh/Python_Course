@@ -110,6 +110,17 @@ class Game(arcade.Window):
             elif self.snake.center_y > self.height:
                 self.gameOver=1
 
+            # i=0
+            # # if len(self.snake.body)>60:
+            # for i in range(0,len(self.snake.body)):
+            #     if arcade.check_for_collision(self.snake.body[0],self.snake.body[i]):
+            #         # if i>60:
+            #             # if self.snake.center_x==part['x'] and self.snake.center_y==part['y']:
+            #             #
+            #                  self.gameOver=1
+            #             #     break
+            #         # i+=1
+
             
         
 

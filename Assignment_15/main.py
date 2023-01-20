@@ -82,7 +82,17 @@ class Game(arcade.Window):
                 self.gameOver=1
 
 
-        
+            # i=0
+            # if len(self.snake.body)>60:
+            #     for i in range(0,len(self.snake.body)):
+            #         if i>60:
+            #             if arcade.check_for_collision(self.snake.body[0],self.snake.body[i]):
+            #         # if i>60:
+            #             # if self.snake.center_x==part['x'] and self.snake.center_y==part['y']:
+            #             #
+            #                  self.gameOver=1
+            #             #     break
+            #         # i+=1
 
 
     
@@ -112,9 +122,12 @@ class Game(arcade.Window):
             self.snake.change_y=0
             # print(symbol)
 
+ 
+        # for part in self.snake.body:
+        #         if self.snake.center_x==part['x'] and self.snake.center_y==part['y']:
+        #             self.gameOver=1
+        #             break
 
-
-    
 
 
 
