@@ -68,7 +68,7 @@ class Game(arcade.Window):
 
         arcade.draw_text(self.score,self.width-50,10,arcade.color.YELLOW,20)
 
-        if(len(self.heart_list)==0):
+        if(len(self.heart_list)==0) :
             arcade.draw_rectangle_filled(0,0,self.width*2,self.height*2,arcade.color.BLACK)
             arcade.draw_text("Game Over!",self.width//2-50,self.height//2,arcade.color.WHITE,25)          
        
@@ -109,9 +109,8 @@ class Game(arcade.Window):
                
 
         if self.ball.center_y <0:
-
             self.heart_list.pop()
-
+            self.score-=1
             del self.ball
             self.ball=br_Ball(self.me,ball_pic)
             
