@@ -547,7 +547,6 @@ font: 700 12pt &quot;Segoe UI&quot;;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 255, 255);
-color: rgb(255, 255, 255);
 font: 700 12pt &quot;Segoe UI&quot;;</string>
     </property>
    </widget>
