@@ -8,11 +8,11 @@ from br_Element import br_Element
 
 
 
-rocket_pic="Python_Course\Assignment_16\paddleblue.png"  
-ball_pic="Python_Course\Assignment_16\Tennis-ball.png"
-blue_pic="Python_Course\Assignment_16\element_blue.png"
-green_pic="Python_Course\Assignment_16\element_green.png"
-red_pic="Python_Course\Assignment_16\element_red.png"
+rocket_pic="Python_Course\Assignment_16\Breakout\paddleblue.png"  
+ball_pic="Python_Course\Assignment_16\Breakout\Tennis-ball.png"
+blue_pic="Python_Course\Assignment_16\Breakout\element_blue.png"
+green_pic="Python_Course\Assignment_16\Breakout\element_green.png"
+red_pic="Python_Course\Assignment_16\Breakout\element_red.png"
 class Game(arcade.Window):
     def __init__(self):
         super().__init__(width=1000,height=700,title="Breakout 2023")
