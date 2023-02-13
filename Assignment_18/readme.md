@@ -3,7 +3,7 @@
 The python version of this program uses the [pyside6](http://wiki.qt.io/Qt_for_Python) library
 
 ---
-![screenshot](Python_Course/Assignment_18/tictactoe.PNG)
+![screenshot](Assignment_18/tictactoe.PNG)
 ---
 ## How to Play?
 First Select the mode of playing between: 
@@ -26,7 +26,7 @@ if you change the mode of game then game will be restarted and you have to start
 # Calculator
  This calculator is like Assignment_17 but in this version,responsive design and partial call are used.
 
- ![screenshot](Python_Course/Assignment_18/myCalc.PNG)
+ ![screenshot](Assignment_18/myCalc.PNG)
 
 
 
