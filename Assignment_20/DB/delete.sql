@@ -1,0 +1,1 @@
+delete from Customers where Customers.country<>'iran'

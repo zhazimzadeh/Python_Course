@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="qrc1">
+    <file>hand1.png</file>
+    <file>hand2.png</file>
+    <file>question.png</file>
+  </qresource>
+</RCC>

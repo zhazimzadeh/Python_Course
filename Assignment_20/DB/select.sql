@@ -1,0 +1,1 @@
+select * from Products where Products.count>0
