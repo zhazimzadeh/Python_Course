@@ -25,4 +25,4 @@ test=(
 ('f',4+tempo),('e',4+tempo),('f',4+tempo),('g',4+tempo),
 ('f',4+tempo),('e',4+tempo),('d',4+tempo)
 )
-ps.make_wav(test,fn="Test4.wave")
+ps.make_wav(test,fn="Test4.wav")
