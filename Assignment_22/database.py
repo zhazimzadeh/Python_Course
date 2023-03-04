@@ -20,8 +20,26 @@ class Database:
         except:
             return False
 
-    def remove_task(self):
-        ...
+    def remove_task(self,task_id):
+        try:
+            query=f"delete from tasks where id={task_id}"
+            self.cursor.execute(query)
+            self.con.commit()
+            return True
+        except:
+            return False
 
-    def task_done(self):
-        ...
+    def task_done(self,task_id,is_checked):
+        try:
+            query=f"update tasks set is_done={is_checked} where id={task_id}"
+            self.cursor.execute(query)
+            self.con.commit()
+            return True
+        except:
+            return False
+
+    def get_taskInfo(self,task_id):
+        query=f"select * from tasks where id={task_id}"
+        result=self.cursor.execute(query)
+        tasks=result.fetchall()
+        return tasks
