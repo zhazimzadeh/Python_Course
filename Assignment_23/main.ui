@@ -41,8 +41,26 @@
     </property>
     <addaction name="menu_new"/>
     <addaction name="menu_openfile"/>
+    <addaction name="menu_solve"/>
+    <addaction name="menu_exit_2"/>
+   </widget>
+   <widget class="QMenu" name="menuTheme">
+    <property name="title">
+     <string>Theme</string>
+    </property>
+    <addaction name="menu_dark"/>
+    <addaction name="menu_light"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="menu_help_2"/>
+    <addaction name="menu_about_2"/>
    </widget>
    <addaction name="menuGame"/>
+   <addaction name="menuTheme"/>
+   <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="menu_new">
@@ -53,6 +71,51 @@
   <action name="menu_openfile">
    <property name="text">
     <string>Open File</string>
+   </property>
+  </action>
+  <action name="menu_help">
+   <property name="text">
+    <string>Help</string>
+   </property>
+  </action>
+  <action name="menu_about">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="menu_exit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="menu_dark">
+   <property name="text">
+    <string>Dark Mode</string>
+   </property>
+  </action>
+  <action name="menu_light">
+   <property name="text">
+    <string>Light Mode</string>
+   </property>
+  </action>
+  <action name="menu_solve">
+   <property name="text">
+    <string>Solve</string>
+   </property>
+  </action>
+  <action name="menu_help_2">
+   <property name="text">
+    <string>Help</string>
+   </property>
+  </action>
+  <action name="menu_about_2">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="menu_exit_2">
+   <property name="text">
+    <string>Exit</string>
    </property>
   </action>
  </widget>
