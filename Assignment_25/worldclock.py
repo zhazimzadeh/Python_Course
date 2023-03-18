@@ -6,6 +6,7 @@ from PySide6.QtGui import *
 from PySide6.QtCore import *
 from PySide6.QtUiTools import *
 
+
 class WorldClock_Thread(QThread):
     signal_timezone=Signal(datetime)
     def __init__(self,location):
@@ -16,11 +17,11 @@ class WorldClock_Thread(QThread):
         while True:
             if self.loc=='IR':
                 self.signal_timezone.emit(datetime.now())
-                print(datetime.now())
+                # print(datetime.now())
             else:
                 tz=timezone(self.loc)
                 self.signal_timezone.emit(datetime.now(tz))
-                print(datetime.now(tz))
+                # print(datetime.now(tz))
             time.sleep(1)
 
 

@@ -26,3 +26,5 @@ class Timer_Thread(QThread):
         self.time.min=0
         self.time.sec=0
         self.signal_show.emit(self.time)
+
+

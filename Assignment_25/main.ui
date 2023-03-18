@@ -27,7 +27,7 @@
      <string notr="true">background-color: rgb(79, 79, 79);</string>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -110,12 +110,15 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>12</pointsize>
-        <bold>true</bold>
+        <family>Seven Segment</family>
+        <pointsize>20</pointsize>
+        <italic>false</italic>
+        <bold>false</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(255, 255, 255);</string>
+       <string notr="true">color: rgb(255, 255, 255);
+font: 20pt &quot;Seven Segment&quot;;</string>
       </property>
       <property name="text">
        <string/>
@@ -132,12 +135,15 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>12</pointsize>
-        <bold>true</bold>
+        <family>Seven Segment</family>
+        <pointsize>20</pointsize>
+        <italic>false</italic>
+        <bold>false</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(255, 255, 255);</string>
+       <string notr="true">color: rgb(255, 255, 255);
+font: 20pt &quot;Seven Segment&quot;;</string>
       </property>
       <property name="text">
        <string/>
@@ -154,12 +160,15 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>12</pointsize>
-        <bold>true</bold>
+        <family>Seven Segment</family>
+        <pointsize>20</pointsize>
+        <italic>false</italic>
+        <bold>false</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(255, 255, 255);</string>
+       <string notr="true">color: rgb(255, 255, 255);
+font: 20pt &quot;Seven Segment&quot;;</string>
       </property>
       <property name="text">
        <string/>
@@ -170,6 +179,145 @@
      <attribute name="title">
       <string>Alarm</string>
      </attribute>
+     <widget class="QPushButton" name="btn_add_alarm">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>180</y>
+        <width>81</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(0, 255, 0);
+font: 700 12pt &quot;Segoe UI&quot;;
+border-radius:15px;
+</string>
+      </property>
+      <property name="text">
+       <string>Add</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="txt_min_Alarm">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>30</y>
+        <width>51</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 20pt &quot;Seven Segment&quot;;
+color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="txt_hour_Alarm">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>30</y>
+        <width>51</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 20pt &quot;Seven Segment&quot;;
+color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="txt_sec_Alarm">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>30</y>
+        <width>51</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 20pt &quot;Seven Segment&quot;;
+color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btn_edit_alarm">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>230</y>
+        <width>81</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(170, 255, 255);
+font: 700 12pt &quot;Segoe UI&quot;;
+border-radius: 15px;
+</string>
+      </property>
+      <property name="text">
+       <string>Edit</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="txt_alarm_desc">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>130</y>
+        <width>191</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>100</y>
+        <width>91</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 12pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>Description:</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="gridLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>0</y>
+        <width>201</width>
+        <height>331</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout"/>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_3">
      <attribute name="title">
@@ -198,13 +346,14 @@ border-radius:25px;
       <property name="geometry">
        <rect>
         <x>170</x>
-        <y>110</y>
+        <y>100</y>
         <width>111</width>
         <height>41</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 700 16pt &quot;Segoe UI&quot;;
+       <string notr="true">
+font: 20pt &quot;Seven Segment&quot;;
 color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
@@ -267,7 +416,7 @@ border-radius: 15px;
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 700 15pt &quot;Segoe UI&quot;;
+       <string notr="true">font: 20pt &quot;Seven Segment&quot;;
 color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
@@ -287,7 +436,7 @@ color: rgb(255, 255, 255);</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 700 15pt &quot;Segoe UI&quot;;
+       <string notr="true">font: 20pt &quot;Seven Segment&quot;;
 color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
@@ -307,7 +456,7 @@ color: rgb(255, 255, 255);</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 700 15pt &quot;Segoe UI&quot;;
+       <string notr="true">font: 20pt &quot;Seven Segment&quot;;
 color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
