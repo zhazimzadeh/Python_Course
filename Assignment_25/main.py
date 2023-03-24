@@ -12,20 +12,16 @@ from timer_ import Timer_Thread
 from worldclock import WorldClock_Thread
 # from database import MyDB
 from pytz import all_timezones
-import pyglet
+# import pyglet
 import sqlite3
+from fontTools.ttLib import TTFont
 
 
 
 
-pyglet.font.add_file("Assignment_25\Seven Segment.ttf")
+# pyglet.font.add_file("Assignment_25\Seven Segment.ttf")
 id=0
 
-# def db():
-#     global con
-#     global cur
-#     con=sqlite3.connect("Assignment_25\Alarm.db")
-#     cur=con.cursor()
 
 class MainWindow(QMainWindow):
     # signal_timer_hour=Signal(int)
@@ -37,6 +33,19 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         self.con=sqlite3.connect("Assignment_25\Alarm.db")
         self.cur=self.con.cursor()
+        font7seg = QFontDatabase.addApplicationFont("Assignment_25\Seven Segment.ttf")
+        fonts = QFontDatabase.applicationFontFamilies(font7seg)
+        self.ui.lbl_timeDE.setFont(QFont(fonts[0], 20))
+        self.ui.lbl_timeIR.setFont(QFont(fonts[0], 20))
+        self.ui.lbl_timeUS.setFont(QFont(fonts[0], 20))
+        self.ui.txt_hour_Alarm.setFont(QFont(fonts[0], 20))
+        self.ui.txt_min_Alarm.setFont(QFont(fonts[0], 20))
+        self.ui.txt_sec_Alarm.setFont(QFont(fonts[0], 20))
+        self.ui.txt_hour_timer.setFont(QFont(fonts[0], 20))
+        self.ui.txt_min_timer.setFont(QFont(fonts[0], 20))
+        self.ui.txt_sec_timer.setFont(QFont(fonts[0], 20))
+        self.ui.lbl_stopwatch.setFont(QFont(fonts[0], 20))
+
         self.line_edits=[]
         i=0
         for i in range(12):
@@ -181,7 +190,7 @@ class MainWindow(QMainWindow):
         self.ui.lbl_stopwatch.setText(f"{time.hour}:{time.min}:{time.sec}")
 
     def start_timer(self):
-
+        self.thread_timer.set_time(int(self.ui.txt_hour_timer.text()),int(self.ui.txt_min_timer.text()),int(self.ui.txt_sec_timer.text()))
         self.thread_timer.start()
 
     def stop_timer(self):

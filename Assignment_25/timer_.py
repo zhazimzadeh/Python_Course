@@ -27,4 +27,9 @@ class Timer_Thread(QThread):
         self.time.sec=0
         self.signal_show.emit(self.time)
 
+    def set_time(self,hour,minute,second):
+        self.time.hour = hour
+        self.time.min = minute
+        self.time.sec = second
+
 
