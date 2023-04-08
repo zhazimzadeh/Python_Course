@@ -10,16 +10,16 @@ The logo is:
 ![screenshot](logo.jpg)
 
 ## exercise 2
-In this exercise 2, We make a TV noise and save as a gif file.
+In this exercise 2, We make a TV noise.
 
-![screenshot](MyGif.gif)
+![screenshot](TV_Old.gif)
 
 ## exercise 3
-In this exercise 3, We make a landscape with snowfall and save as a gif file.
+In this exercise 3, We make a landscape with snowfall.
 
-![screenshot](pic3.jpg)
+![screenshot](snow.gif)
 
 ## exercise 4
 In this exercise 4, we write a color detector using webcam.
 
-![screenshot](my_char.jpg)
+![screenshot](webcam_detector.gif)
