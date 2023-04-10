@@ -1,6 +1,8 @@
 import cv2
 import numpy as np
 
+
+
 def chess_board(image):
         results = face_detector.detectMultiScale(image,1.3)
         for face in results:
@@ -28,56 +30,62 @@ def mirror(image):
         return image
 
 def eye_lips(image):
-        eyes = eye_detector.detectMultiScale(image,1.3)
-        lips=lip_detector.detectMultiScale(image,1.3)
-        for lip in lips:
-            x,y,w,h = lip
-            Lips = cv2.resize(image_lips,[w,h])
-            break
-        for i in range((Lips.shape[0])):
-             for j in range((Lips.shape[1])):
-                if Lips[i,j]>0:
-                    image[x+i, y+j] = Lips[i,j]
-        # if len(eyes)>1:
-        #      eye1=eyes[0]
-        #      eye2=eyes[1]
-        
-        # Eyes = cv2.resize(image,[eye1[2]+eye2[2],eye1[3]+eye2[3]])
-        # image[eye1[1]:eye1[1]+eye1[3], eye1[0]:eye1[0]+eye1[2]] = Eyes
+    # gray=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
+    # faces = face_detector.detectMultiScale(gray,1.5,5)
+    
+    # for(x,y,w,h) in faces:
+    #     roi_gray = gray[y:y+h,x:x+h]
+    #     roi_color=image[y:y+h,x:x+h]
+    #     #  cv2.rectangle(image,(x,y),(x+w,y+h),(255,255,255),3)
 
-        # x2=image.shape[1]
-        # y2=image.shape[1]
-        # w2=image.shape[1]
-        # h2=image.shape[1]
-        # x1=0
-        # y1=0
-        # w1=0
-        # h1=0
-        # for eye in eyes:
-        #     x1,y1,w1,h1=eye
-        #     if x1>x2:
-        #          x1=x2
-        #     if y1>y2:
-        #          y1=y2
-        #     if w1>w2:
-        #          w1=w2
-        #     if h1>h2:
-        #          h1=h2
-
-
-        #     #draw a rectangle around the face
-        # cv2.rectangle(image,[x,y],[x+w,y+h],0,5)
-        # # glasses=cv2.resize(image_glasses,[w1, h2])
-        # # cv2.imshow("",glasses)
-
-        # image[y1:y1+h1,x1:x1+w2 ] = glasses
+        eyes=eye_detector.detectMultiScale(image,1.5,10)
+        if len(eyes)==2:
+            if eyes[0][0] > eyes[1][0]:
+                [eyes[0], eyes[1]] = [eyes[1], eyes[0]]
+            x1, y1, w1, h1 = eyes[0]
+            x2, y2, w2, h2 = eyes[1]
+            w, h = int(max(y1+h1, y2+h2)//2), int((x2+w2-x1)//1.5)
+            glassess = cv2.resize(image_glasses, (w, h))
+            image_roi=image[y1:h+y1, x1:w+x1]
+            for i in range(image_roi.shape[0]):
+                 for j in range(image_roi.shape[1]):
+                    if glassess[i,j,0]==255 and glassess[i,j,1]==255 and glassess[i,j,2]==255:
+                           ...
+                    else:
+                           image_roi[i,j,0]=glassess[i,j,0]
+                           image_roi[i,j,1]=glassess[i,j,1]
+                           image_roi[i,j,2]=glassess[i,j,2]
             
-        # for face in eyes:
-        #     x,y,w,h = face
-        #     glasses = cv2.resize(image_glasses,[w,h])
-        #     image[y:y+h, x:x+w] = glasses
+            image[y1:h+y1, x1:w+x1]=image_roi[:,:]
+
+
+        lips=lip_detector.detectMultiScale(image,1.5,10)
+        if len(lips)>0:
+                lx, ly, lw, lh = lips[0]
+                # for lip in lips:
+                #     lx2,ly2,lw2,lh2=lip
+                #     if lx2>lx+lh:
+                #         lx, ly, lw, lh = lip
+
+                lip = cv2.resize(image_lips, (lw, lh))
+                image_roi=image[ly:lh+ly, lx:lw+lx]
+                for i in range(image_roi.shape[0]):
+                    for j in range(image_roi.shape[1]):
+                        if lip[i,j,0]==0 and lip[i,j,1]==0 and lip[i,j,2]==0:
+                            ...
+                        else:
+                            image_roi[i,j,0]=lip[i,j,0]
+                            image_roi[i,j,1]=lip[i,j,1]
+                            image_roi[i,j,2]=lip[i,j,2]
+                
+                image[ly:lh+ly, lx:lw+lx]=image_roi[:,:]
+                # image[fy:fh+fy, fx:fw+fx]=face[:,:]
+                
+
+
+    
         return image
-     
+        
 
 cap = cv2.VideoCapture(0)
 _, frame = cap.read()
@@ -86,10 +94,10 @@ writer = cv2.VideoWriter('Assignment_28\Jila.mp4', cv2.VideoWriter_fourcc(*'MJPG
 image_sticker=cv2.imread("Assignment_28\sticker.png")
 image_glasses=cv2.imread("Assignment_28\glasses.png")
 image_lips=cv2.imread("Assignment_28\lips.png")
-image_lips=cv2.cvtColor(image_lips,cv2.COLOR_BGR2GRAY)
+# image_lips=cv2.cvtColor(image_lips,cv2.COLOR_BGR2GRAY)
 
 face_detector=cv2.CascadeClassifier(cv2.data.haarcascades +"haarcascade_frontalface_default.xml")
-eye_detector = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_eye_tree_eyeglasses.xml')
+eye_detector = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_eye.xml')
 lip_detector = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_smile.xml')
 choice=0
 while True:

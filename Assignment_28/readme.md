@@ -28,7 +28,7 @@ A non-square sticker on your face
     ![screenshot](Jila_Sticker.jpg)
 Press 2️⃣ on keyboard:
 Stickers on your eyes and lips (find xml files for detect eyes and lips here) 🥸
-
+![screenshot](Jila_glasses.JPG)
 Press 3️⃣ on keyboard:
 Chess-board face
     ![screenshot](Jila_Blur.jpg)
