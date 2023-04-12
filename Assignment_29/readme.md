@@ -45,6 +45,9 @@ output:
 ## exercise 5
 
 In this exercise,we calculate average of video frames to make an image of empty road, without cars.
+for more details, please click on [this](https://learnopencv.com/simple-background-estimation-in-videos-using-opencv-c-python/). In addition, we use scikit-image library and can install it with:
+
+    pip install scikit-image
 
 ## exercise 6
 In this exercies, we use mask to apply new floor in the room.we use multiply and add operation.
