@@ -49,6 +49,11 @@ for more details, please click on [this](https://learnopencv.com/simple-backgrou
 
     pip install scikit-image
 
+input:
+![screenshot](Capture_cars.JPG)
+output:
+![screenshot](cars.jpg)
+
 ## exercise 6
 In this exercies, we use mask to apply new floor in the room.we use multiply and add operation.
 Input:
