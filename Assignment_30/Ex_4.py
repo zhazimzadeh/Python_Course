@@ -11,17 +11,6 @@ lip=[52 , 55, 56, 53, 59,58,61,68,67,71,63,64,65]
 eye1=[89,90,87,91,93,96,94,95]
 eye2=[39,42,40,41,35,36,33,37]
 
-def zoom(face,landmark,points):
-
-    for  i in points:
-        landmark.append(pred[i])
-    landmark=np.array(landmark,dtype=int)
-    x,y,w,h=cv2.boundingRect(landmark)
-    mask=np.zeros(fruit.shape,dtype=np.uint8)
-    cv2.drawContours(mask, [landmark], -1, (255,255,255),-1)
-    mask=mask//255
-    result=face * mask
-    result_big = cv2.resize(result,(0,0),fx = 1.7 , fy = 1.7)
 
 fd = UltraLightFaceDetecion("Assignment_30\weights\RFB-320.tflite", conf_threshold=0.88)
 fa = CoordinateAlignmentModel("Assignment_30\weights\coor_2d106.tflite")
@@ -73,37 +62,29 @@ result_lip=result[y_l:y_l+h_l,x_l:x_l+w_l]
 result_eye1=result[y_e1:y_e1+h_e1,x_e1:x_e1+w_e1]
 result_eye2=result[y_e2:y_e2+h_e2,x_e2:x_e2+w_e2]
 
-print(result_lip.shape)
-print(result_eye1.shape)
-print(result_eye2.shape)
-result_lip=cv2.resize(result_lip, [90, 80])
-result_eye1=cv2.resize(result_eye1,[60, 55])
-result_eye2=cv2.resize(result_eye2,[60, 55])
+doubled_lip=cv2.resize(result_lip, (w_l*2,h_l*2))
+doubled_eye1=cv2.resize(result_eye1,(w_e1*2,h_e1*2))
+doubled_eye2=cv2.resize(result_eye2,(w_e2*2,h_e2*2))
 
-# fruit[y_l+200:y_l+h_l+200,x_l-150:x_l+w_l-324]=result_lip
-# fruit[y_l:y_l+h_e1,x_l-50:x_l+w_e1-50]=result_eye1
-# fruit[y_l:y_l+h_e2,x_l-200:x_l+w_e2-200]=result_eye2
+for i in range(h_l*2):
+    for j in range(w_l*2):
+        if doubled_lip[i][j][0] == 0 and doubled_lip[i][j][1] == 0 and doubled_lip[i][j][2] == 0:
+            doubled_lip[i][j] = face[int(y_l-h_l//2)+i, int(x_l-w_l//2)+j]
+face[int(y_l-h_l//2):int(y_l-h_l//2)+h_l*2, int(x_l-w_l//2):int(x_l-w_l//2)+w_l*2]=doubled_lip
 
-print(fruit.shape)
-mask=np.zeros([fruit.shape[0],fruit.shape[1],3])
-mask[70:125, 50:110  ]=result_eye2
-mask[70:125, 130:190]=result_eye1
-mask[135:215, 80:170]=result_lip
+for i in range(h_e1*2):
+    for j in range(w_e1*2):
+        if doubled_eye1[i][j][0] == 0 and doubled_eye1[i][j][1] == 0 and doubled_eye1[i][j][2] == 0:
+            doubled_eye1[i][j] = face[int(y_e1-h_e1//2)+i, int(x_e1-w_e1//2)+j]
+face[int(y_e1-h_e1//2):int(y_e1-h_e1//2)+h_e1*2, int(x_e1-w_e1//2):int(x_e1-w_e1//2)+w_e1*2]=doubled_eye1
 
-x, y, w, h = [0, 0, fruit.shape[0], fruit.shape[1]]
-for i in range(w):
-    for j in range(h):
-        if mask[i][j][0] == 0 and mask[i][j][1] == 0 and mask[i][j][2] == 0:
-            mask[i][j] = fruit[i,j]
-fruit[ x:x+w,y:y+h] = mask
 
-cv2.imshow("result", fruit )
+for i in range(h_e2*2):
+    for j in range(w_e2*2):
+        if doubled_eye2[i][j][0] == 0 and doubled_eye2[i][j][1] == 0 and doubled_eye2[i][j][2] == 0:
+            doubled_eye2[i][j] = face[int(y_e2-h_e2//2)+i, int(x_e2-w_e2//2)+j]
+face[int(y_e2-h_e2//2):int(y_e2-h_e2//2)+h_e2*2, int(x_e2-w_e2//2):int(x_e2-w_e2//2)+w_e1*2]=doubled_eye2
+
+cv2.imshow("result", face)
 cv2.waitKey()
-cv2.imwrite("Assignment_30/output/result_lip.jpg",result_lip)
-cv2.imwrite("Assignment_30/output/result_eye1.jpg",result_eye1)
-cv2.imwrite("Assignment_30/output/result_eye2.jpg",result_eye2)
-cv2.imwrite("Assignment_30/output/result_fruit.jpg",fruit)
-
-
-
-
+cv2.imwrite("Assignment_30/output/result_double.jpg", face)
